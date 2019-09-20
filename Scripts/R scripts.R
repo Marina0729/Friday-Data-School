@@ -36,3 +36,31 @@ gapminder %>%
 Australian_Year_Pop <- gapminder %>% 
   filter(country == "Australia") %>% 
   select(country, year, pop)
+#We are creating a data frame Australian_Year_Pop using the gapminder data frame 
+#then filter from that where the country is Australia then filter the colums 
+#country, year and pop
+
+Australian_Year_Pop <- gapminder %>% 
+  filter(country == "Australia") %>% 
+  select(country, year, pop) %>% 
+  rename(population = pop)
+
+Australian_Year_Pop
+
+#mutate
+mutate(gapminder, gdp = gdpPercap * pop)
+gapminder
+mutate(gapminder, popmillion = pop/1000000 )
+popmillion <- mutate(gapminder, popmillion = pop/1000000 )
+
+mutate(gapminder, poplog = log(pop))
+poplog <- mutate(gapminder, poplog = log(pop))
+
+#string subset to shorten cell names
+str_sub("A long bit of text", start = 1, end = 5)
+
+mutate(gapminder, country_abbr = str_sub(country, start=1, end = 3))
+
+#new column with the number of characters in a country's name
+mutate(gapminder, characters_in_country = str_length(country))
+characters_in_country <- mutate(gapminder, characters_in_country = str_length(country))
